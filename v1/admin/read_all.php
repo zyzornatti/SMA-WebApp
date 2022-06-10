@@ -1,5 +1,5 @@
 <?php
-
+ 
 if(count($uri) <3){
   header("Location: /dashboard");
   exit();

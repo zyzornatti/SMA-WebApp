@@ -35,9 +35,25 @@ if (count($uri) > 2) {
   // $query_string = explode("?",$uri[1])[1];
   switch ($uri[1]) {
 
-    // case 'dashboard':
-    // include APP_PATH."/admin/dashboard.php";
-    // break;
+    case 'ajax_test':
+    include APP_PATH."/ajax/test.php";
+    break;
+
+    case 'fetch_session':
+    include APP_PATH."/ajax/ajax_session.php";
+    break;
+
+    case 'fetch_term':
+    include APP_PATH."/ajax/ajax_term.php";
+    break;
+
+    case 'fetch_class':
+    include APP_PATH."/ajax/ajax_class.php";
+    break;
+
+    case 'fetch_fees':
+    include APP_PATH."/ajax/ajax_fees.php";
+    break;
 
 
 

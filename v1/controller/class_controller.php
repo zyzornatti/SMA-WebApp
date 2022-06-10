@@ -40,7 +40,7 @@ class TableContent {
       }
 
       //if its manage file, do this!!!
-      if($this->checker == "manage" || $this->checker == "edit"){
+      if($this->checker == "manage" || $this->checker == "edit" || $this->checker == "fees"){
         $this->sufix[] = "read"; //add read to suffix so it can fetch from table with read suffix
         foreach ($this->sufix as $suf) {
           $tt[] = $suf."_".$this->page;
@@ -142,7 +142,7 @@ class TableRecord extends TableContent {
     return selectContent($this->conn, $table, []);
   }
 
-  public function delete_record(){ //to fetch records for read_all
+  public function delete_record(){ //to delete records
     $table = $this->table_name();
     return deleteContent($this->conn, $table, $this->where);
   }
