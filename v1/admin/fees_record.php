@@ -155,7 +155,16 @@ include "includes/header.php";
                <div class="input-group-prepend">
                   <div class="input-group-text">Class</div>
                 </div>
-               <select class="custom-select" id="class">
+               <select class="custom-select" id="clas">
+                 <option value="">Choose...</option>
+               </select>
+             </div>
+
+             <div class="input-group mb-2 mr-sm-2">
+               <div class="input-group-prepend">
+                  <div class="input-group-text">Fees Type</div>
+                </div>
+               <select class="custom-select" id="fees_type">
                  <option value="">Choose...</option>
                </select>
              </div>
@@ -204,10 +213,7 @@ include "includes/header.php";
  <?php endif ?>
 
  <script type="text/javascript">
- // $("#read").DataTable({
- //
- // });
-
+ 
    function fetch_session(){
      $.ajax({
        url: "/fetch_session",
@@ -253,24 +259,42 @@ include "includes/header.php";
           for (var i in data) {
             resCla +='<option value='+data[i]['hash_id']+'>'+data[i]['class']+'</option>';
           }
-          $("#class").append(resCla);
+          $("#clas").append(resCla);
        }
      })
    }
    fetch_class();
 
-   function fetch(sesh, tr, cl){
+   function fetch_fees_type(){
+     $.ajax({
+       url: "/fetch_fees_type",
+       type: "post",
+       dataType: "json",
+       success: function(data){
+          // console.log(data);
+          var resFt = "";
+          for (var i in data) {
+            resFt +='<option value='+data[i]['hash_id']+'>'+data[i]['fees_type']+'</option>';
+          }
+          $("#fees_type").append(resFt);
+       }
+     })
+   }
+   fetch_fees_type();
+
+   function fetch(sess, tr, cl, ft){
      $.ajax({
        url: "/fetch_fees",
        type: "post",
        data: {
-         sesh: sesh,
+         sesh: sess,
          term: tr,
-         class: cl
+         clas: cl,
+         fees_type: ft
        },
        dataType: "json",
        success: function(data){
-          console.log(data);
+          // console.log(data);
           let i = 1;
           $('#read').DataTable({
             "data": data,
@@ -283,15 +307,15 @@ include "includes/header.php";
                   },
                  { data: 'name' },
                  {
-                   data: 'class',
+                   data: 'st_class',
                    render: function ( data, type, row ) {
-                       return row.class;
+                       return row.st_class;
                    }
                  },
                  {
-                   data: 'session',
+                   data: 'tr_session',
                    render: function ( data, type, row ) {
-                       return row.session;
+                       return row.tr_session;
                    }
                  },
                  {
@@ -301,9 +325,9 @@ include "includes/header.php";
                    }
                  },
                  {
-                   data: 'fee_type',
+                   data: 'fees_type',
                    render: function ( data, type, row ) {
-                       return row.fee_type;
+                       return row.fees_type;
                    }
                  },
                  {
@@ -343,24 +367,19 @@ include "includes/header.php";
 
      let sesh = $("#sesh").val();
      let tam = $("#term").val();
-     let clas = $("#class").val();
+     let clas = $("#clas").val();
+     let fees_type = $("#fees_type").val();
+
+     //check if they are empty POST values or not
+     let seshh = sesh == "" ? "": sesh;
+     let tamm = tam == "" ? "": tam;
+     let clase = clas == "" ? "": clas;
+     let fees_typee = fees_type == "" ? "": fees_type;
      // alert(sesh+" "+tam);
-     if(sesh != "" && tam != "" && clas != ""){
-       $("#read").DataTable().destroy();
-       fetch(sesh, tam, clas);
-     }else if(sesh != "" && tam == "" && clas == ""){
-       $("#read").DataTable().destroy();
-       fetch(sesh, "", "");
-     }else if(sesh == "" && tam != "" && clas == ""){
-       $("#read").DataTable().destroy();
-       fetch("", tam, "");
-     }else if(sesh == "" && tam == "" && clas != ""){
-       $("#read").DataTable().destroy();
-       fetch("", "", clas);
-     }else{
-       $("#read").DataTable().destroy();
-       fetch();
-     }
+
+     //destroy datatable table and use the parameters sent to fetch function to fetch datas based on the parameters sent
+     $("#read").DataTable().destroy();
+     fetch(seshh, tamm, clase, fees_typee);
 
    });
 
@@ -372,8 +391,10 @@ include "includes/header.php";
      fetch_session();
      $("#term").html("<option value=''>Choose...</option>");
      fetch_term();
-     $("#class").html("<option value=''>Choose...</option>");
+     $("#clas").html("<option value=''>Choose...</option>");
      fetch_class();
+     $("#fees_type").html("<option value=''>Choose...</option>");
+     fetch_fees_type();
      fetch();
    });
 

@@ -3,42 +3,37 @@ echo "This is a Test Page";
 echo "<br/>";
 echo "<hr/>";
 
-$id = "16515710505127";
+$name = "Abdul-Azeez";
+$nam = "Fatimah";
 
-if(isset ($_POST['submit'])){
-  // var_dump($_FILES);
-  // die;
-  $imgg = uploadImages($_FILES['image_1'], "uploads/");
-  if(in_array("true", $imgg)){
-    unset($_FILES['image_1']);
-    $new_image = $imgg[1];
-  }else{
-    die($imgg['err']);
-  }
-  updateContent($conn, "panel_students", ["image_1"=>$new_image], ['hash_id'=>$id]);
-  echo "Upload Successful";
+$gender = isset($name) && $name == "Fatimah" ? "Male" : "Female";
+echo $gender;
+echo "<br>";
+if(isset($_POST['button'])){
+  // $_POST['name'] = "Abdul-Azeez";
+  $current_sesh = selectContentDesc($conn, "selection_session", [], "id", 1)[0];
+  // var_dump($current_sesh['hash_id']);
+  $_POST['name'] = isset($_POST['name']) && $_POST['name'] == "" ? $current_sesh['hash_id'] : $_POST['name'];
+  var_dump($_POST);
 }
 
-
  ?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form class="" action="" method="post">
+      <input type="text" name="name" value="">
+      <button type="submit" name="button">Go</button>
+    </form>
 
- <!DOCTYPE html>
- <html lang="en" dir="ltr">
-   <head>
-     <meta charset="utf-8">
-     <title></title>
-
-     <!-- <script type="text/javascript" src="/assets/js/jquery.js"></script>
-     <script type="text/javascript" src="/assets/js/jquery-1.10.2.min.js"></script>
-     <script type="text/javascript" src="/assets/js/sweetalert2.all.min.js"></script>
-     <script type="text/javascript">
-       swal.fire("Done", "successfully done", "success")
-     </script> -->
-   </head>
-   <body>
-     <form class="" action="" method="post" enctype="multipart/form-data">
-       <input type="file" name="image_1" value=""><br/><br/>
-       <input type="submit" name="submit" value="Upload">
-     </form>
-   </body>
- </html>
+    <script type="text/javascript">
+      let sesh = "Me";
+      let seshh = sesh == "" ? "": sesh;
+      alert(seshh)
+    </script>
+  </body>
+</html>
