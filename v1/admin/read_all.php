@@ -1,5 +1,5 @@
 <?php
- 
+
 if(count($uri) <3){
   header("Location: /dashboard");
   exit();
@@ -27,7 +27,7 @@ if(count($uri) <3){
 
 }
 
-$page_title = "Manage";
+$page_title = "Manage ".ucwords($page);
 include "includes/header.php";
 
  ?>

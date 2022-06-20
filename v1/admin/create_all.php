@@ -55,7 +55,7 @@ if(array_key_exists('submit', $_POST)){
   header("Location: /$location");
 
 }
-$page_title = "Create";
+$page_title = "Create ".ucwords($page);
 
 
 include "includes/header.php";

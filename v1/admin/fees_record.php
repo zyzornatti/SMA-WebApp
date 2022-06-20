@@ -72,11 +72,6 @@ if(count($uri) < 3){
     // die;
   }
 
-
-
-
-
-
 }
 
 $page_title = "Fees Record";
@@ -213,7 +208,7 @@ include "includes/header.php";
  <?php endif ?>
 
  <script type="text/javascript">
- 
+
    function fetch_session(){
      $.ajax({
        url: "/fetch_session",

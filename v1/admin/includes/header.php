@@ -38,6 +38,7 @@ if(!isset ($_SESSION['admin'])){
   <link rel="stylesheet" href="/assets/plugins/datatables/datatables.min.css">
 
   <link rel="stylesheet" href="/assets/css/style.css">
+
 </head>
 <body>
 
@@ -179,48 +180,39 @@ if(!isset ($_SESSION['admin'])){
         <li class="menu-title">
           <span>Main Menu</span>
         </li>
-        <li class="submenu active">
-          <a href="/dashboard"><i class="fas fa-user-graduate"></i> <span> Dashboard</span> </a>
-          <!-- <ul>
-            <li><a href="index.html" class="active">Admin Dashboard</a></li>
-            <li><a href="teacher-dashboard.html">Teacher Dashboard</a></li>
-            <li><a href="student-dashboard.html">Student Dashboard</a></li>
-          </ul> -->
+        <li class="submenu <?php if($page_title == "Dashboard"){echo "active";} ?>">
+          <a href="/dashboard"><i class="fas fa-chalkboard"></i> <span> Dashboard</span> </a>
         </li>
-        <li class="submenu">
+        <li class="submenu <?php if($page_title == "Create Students" || $page_title == "Manage Students"){echo "active";} ?>">
           <a href="#"><i class="fas fa-user-graduate"></i> <span> Students</span> <span class="menu-arrow"></span></a>
           <ul>
             <li><a href="/create/students">Add Student</a></li>
             <li><a href="/manage/students">Manage Student</a></li>
-            <!-- <li><a href="student-details.html">Student View</a></li>
-            <li><a href="add-student.html">Student Add</a></li>
-            <li><a href="edit-student.html">Student Edit</a></li> -->
           </ul>
         </li>
-        <li class="submenu">
+        <li class="submenu <?php if($page_title == "Create Teachers" || $page_title == "Manage Teachers"){echo "active";} ?>">
           <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span> Teachers</span> <span class="menu-arrow"></span></a>
           <ul>
             <li><a href="/create/teachers">Add Teacher</a></li>
             <li><a href="/manage/teachers">Manage Teachers</a></li>
-            <!-- <li><a href="add-teacher.html">Teacher Add</a></li>
-            <li><a href="edit-teacher.html">Teacher Edit</a></li> -->
           </ul>
         </li>
-        <li class="submenu">
+        <li class="submenu <?php if($page_title == "Create Roles" || $page_title == "Manage Roles"){echo "active";} ?>">
           <a href="#"><i class="fas fa-building"></i> <span> Roles</span> <span class="menu-arrow"></span></a>
           <ul>
             <li><a href="/create/roles">Add Role</a></li>
             <li><a href="/manage/roles">Manage Roles</a></li>
-            <!-- <li><a href="edit-department.html">Department Edit</a></li> -->
           </ul>
         </li>
-        <li class="submenu">
+        <li class="submenu <?php if($page_title == "Create Subjects" || $page_title == "Manage Subjects"){echo "active";} ?>">
           <a href="#"><i class="fas fa-book-reader"></i> <span> Subjects</span> <span class="menu-arrow"></span></a>
           <ul>
             <li><a href="/create/subjects">Add Subject</a></li>
             <li><a href="/manage/subjects">Manage Subjects</a></li>
-            <!-- <li><a href="edit-subject.html">Subject Edit</a></li> -->
           </ul>
+        </li>
+        <li class="submenu <?php if($page_title == "Fees Record"){echo "active";} ?>">
+          <a href="/fees/students"><i class="fas fa-book-open"></i> <span> Fees Records</span> </a>
         </li>
         <li class="menu-title">
           <span>Management</span>
