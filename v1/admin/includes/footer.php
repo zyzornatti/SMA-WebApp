@@ -18,10 +18,11 @@
 <script src="/assets/plugins/datatables/datatables.min.js"></script>
 <script src="/assets/plugins/apexchart/apexcharts.min.js"></script>
 <script src="/assets/plugins/apexchart/chart-data.js"></script>
+<script src="/assets/js/script1.js"></script>
 
 <!-- Sweet alert -->
 <script type="text/javascript" src="/assets/js/sweetalert2.all.min.js"></script>
-<script src="/assets/js/script.js"></script>
+<!-- Sweet alert -->
 </body>
 
 

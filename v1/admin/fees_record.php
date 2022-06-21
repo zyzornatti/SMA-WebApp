@@ -82,121 +82,93 @@ include "includes/header.php";
  <div class="page-wrapper">
    <div class="content container-fluid">
 
-   <div class="page-header">
-     <div class="row">
-       <div class="col">
-         <h3 class="page-title">Payment Record</h3>
-         <ul class="breadcrumb">
-         <!-- <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li> -->
-         <!-- <li class="breadcrumb-item active">Students</li> -->
-         </ul>
+     <div class="page-header">
+       <div class="row">
+         <div class="col">
+           <h3 class="page-title">Payment Record</h3>
+           <ul class="breadcrumb">
+           </ul>
+         </div>
        </div>
      </div>
-   </div>
 
-   <div class="row">
-     <div class="col-sm-12">
-       <div class="card">
-         <div class="card-header">
-           <h5 class="card-title mb-2">Manage Payments</h5>
-           <!-- <p class="card-text">
-           This is the most basic example of the datatables with zero configuration. Use the <code>.datatable</code> class to initialize datatables.
-           </p> -->
-         </div>
-         <!-- <div class="col-md-6">
-           <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <label class="input-group-text" for="sesh">Session</label>
-            </div>
-            <select class="custom-select" id="sesh">
-              <option value="">Choose...</option>
-            </select>
-          </div>
-         </div> -->
-         <!-- <div class="col-md-6">
-           <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <label class="input-group-text" for="term">Term</label>
-            </div>
-            <select class="custom-select" id="term">
-              <option value="">Choose...</option>
-            </select>
-          </div>
-          <div class="">
-            <button type="button" class="btn btn-primary" id="filt">Filter</button>
-          </div>
-         </div> -->
-         <div class="card-body">
-           <form class="form-inline">
-             <div class="input-group mb-2 mr-sm-2">
-               <div class="input-group-prepend">
-                  <div class="input-group-text">Session</div>
-                </div>
-               <select class="custom-select" id="sesh">
-                 <option value="">Choose...</option>
-               </select>
-             </div>
-
-             <div class="input-group mb-2 mr-sm-2">
-               <div class="input-group-prepend">
-                  <div class="input-group-text">Term</div>
-                </div>
-               <select class="custom-select" id="term">
-                 <option value="">Choose...</option>
-               </select>
-             </div>
-
-             <div class="input-group mb-2 mr-sm-2">
-               <div class="input-group-prepend">
-                  <div class="input-group-text">Class</div>
-                </div>
-               <select class="custom-select" id="clas">
-                 <option value="">Choose...</option>
-               </select>
-             </div>
-
-             <div class="input-group mb-2 mr-sm-2">
-               <div class="input-group-prepend">
-                  <div class="input-group-text">Fees Type</div>
-                </div>
-               <select class="custom-select" id="fees_type">
-                 <option value="">Choose...</option>
-               </select>
-             </div>
-
-             <button type="button" id="filter" class="btn btn-primary mb-2">Filter</button>
-             <button type="button" id="reset" class="btn btn-secondary mb-2">Reset</button>
-           </form>
-
-           <div class="table-responsive">
-             <table id="read" class="table table-stripped">
-               <thead>
-                 <tr>
-                   <th>S/N</th>
-                   <th>Student</th>
-                   <th>Class</th>
-                   <th>Session</th>
-                   <th>Term</th>
-                   <th>Fee Type</th>
-                   <th>Fee Amount</th>
-                   <th>Amount Paid</th>
-                   <th>Outsanding</th>
-                   <th>Action</th>
-
-                   <!-- <th columnspan="2">Action</th> -->
-                 </tr>
-               </thead>
-               <tbody>
-
-               </tbody>
-             </table>
+     <div class="row">
+       <div class="col-sm-12">
+         <div class="card">
+           <div class="card-header">
+             <h5 class="card-title mb-2">Manage Payments</h5>
            </div>
-         </div>
+           <div class="card-body">
+             <form class="form-inline">
+               <div class="input-group mb-2 mr-sm-2">
+                 <div class="input-group-prepend">
+                    <div class="input-group-text">Session</div>
+                  </div>
+                 <select class="custom-select" id="sesh">
+                   <option value="">Choose...</option>
+                 </select>
+               </div>
+
+               <div class="input-group mb-2 mr-sm-2">
+                 <div class="input-group-prepend">
+                    <div class="input-group-text">Term</div>
+                  </div>
+                 <select class="custom-select" id="term">
+                   <option value="">Choose...</option>
+                 </select>
+               </div>
+
+               <div class="input-group mb-2 mr-sm-2">
+                 <div class="input-group-prepend">
+                    <div class="input-group-text">Class</div>
+                  </div>
+                 <select class="custom-select" id="clas">
+                   <option value="">Choose...</option>
+                 </select>
+               </div>
+
+               <div class="input-group mb-2 mr-sm-2">
+                 <div class="input-group-prepend">
+                    <div class="input-group-text">Fees Type</div>
+                  </div>
+                 <select class="custom-select" id="fees_type">
+                   <option value="">Choose...</option>
+                 </select>
+               </div>
+
+               <button type="button" id="filter" class="btn btn-primary mb-2">Filter</button>
+               <button type="button" id="reset" class="btn btn-secondary mb-2">Reset</button>
+             </form>
+
+             <div class="table-responsive">
+               <table id="read" class="table table-stripped">
+                 <thead>
+                   <tr>
+                     <th>S/N</th>
+                     <th>Student</th>
+                     <th>Class</th>
+                     <th>Session</th>
+                     <th>Term</th>
+                     <th>Fee Type</th>
+                     <th>Fee Amount</th>
+                     <th>Amount Paid</th>
+                     <th>Outsanding</th>
+                     <th>Action</th>
+
+                     <!-- <th columnspan="2">Action</th> -->
+                   </tr>
+                 </thead>
+                 <tbody>
+
+                 </tbody>
+               </table>
+             </div>
+           </div>
+          </div>
         </div>
-      </div>
-     </div>
+       </div>
+
    </div>
- </div>
 
  <?php include "includes/footer.php" ?>
 
@@ -208,7 +180,9 @@ include "includes/header.php";
  <?php endif ?>
 
  <script type="text/javascript">
-
+ // $("#read").dataTable({
+ //   // "searching": true
+ // })
    function fetch_session(){
      $.ajax({
        url: "/fetch_session",
@@ -300,7 +274,12 @@ include "includes/header.php";
                         return i++;
                     }
                   },
-                 { data: 'name' },
+                 {
+                   data: 'name',
+                     render: function ( data, type, row ) {
+                         return row.name;
+                     }
+                 },
                  {
                    data: 'st_class',
                    render: function ( data, type, row ) {

@@ -38,7 +38,7 @@ if(!isset ($_SESSION['admin'])){
   <link rel="stylesheet" href="/assets/plugins/datatables/datatables.min.css">
 
   <link rel="stylesheet" href="/assets/css/style.css">
-
+</script>
 </head>
 <body>
 
@@ -180,8 +180,8 @@ if(!isset ($_SESSION['admin'])){
         <li class="menu-title">
           <span>Main Menu</span>
         </li>
-        <li class="submenu <?php if($page_title == "Dashboard"){echo "active";} ?>">
-          <a href="/dashboard"><i class="fas fa-chalkboard"></i> <span> Dashboard</span> </a>
+        <li class="<?php if($page_title == "Dashboard"){echo "active";} ?>">
+          <a href="/dashboard"><i class="fas fa-th-large"></i> <span> Dashboard</span> </a>
         </li>
         <li class="submenu <?php if($page_title == "Create Students" || $page_title == "Manage Students"){echo "active";} ?>">
           <a href="#"><i class="fas fa-user-graduate"></i> <span> Students</span> <span class="menu-arrow"></span></a>
@@ -211,7 +211,7 @@ if(!isset ($_SESSION['admin'])){
             <li><a href="/manage/subjects">Manage Subjects</a></li>
           </ul>
         </li>
-        <li class="submenu <?php if($page_title == "Fees Record"){echo "active";} ?>">
+        <li class="<?php if($page_title == "Fees Record"){echo "active";} ?>">
           <a href="/fees/students"><i class="fas fa-book-open"></i> <span> Fees Records</span> </a>
         </li>
         <li class="menu-title">
