@@ -187,7 +187,7 @@ if(!isset ($_SESSION['admin'])){
           <a href="#"><i class="fas fa-user-graduate"></i> <span> Students</span> <span class="menu-arrow"></span></a>
           <ul>
             <li><a href="/create/students">Add Student</a></li>
-            <li><a href="/manage/students">Manage Student</a></li>
+            <li><a href="/students">Manage Student</a></li>
           </ul>
         </li>
         <li class="submenu <?php if($page_title == "Create Teachers" || $page_title == "Manage Teachers"){echo "active";} ?>">
@@ -202,6 +202,13 @@ if(!isset ($_SESSION['admin'])){
           <ul>
             <li><a href="/create/roles">Add Role</a></li>
             <li><a href="/manage/roles">Manage Roles</a></li>
+          </ul>
+        </li>
+        <li class="submenu <?php if($page_title == "Create Class" || $page_title == "Manage Class"){echo "active";} ?>">
+          <a href="#"><i class="fas fa-school"></i> <span> Class</span> <span class="menu-arrow"></span></a>
+          <ul>
+            <li><a href="/create/class">Add Class</a></li>
+            <li><a href="/manage/class">Manage Class</a></li>
           </ul>
         </li>
         <li class="submenu <?php if($page_title == "Create Subjects" || $page_title == "Manage Subjects"){echo "active";} ?>">

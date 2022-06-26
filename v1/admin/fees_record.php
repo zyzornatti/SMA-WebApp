@@ -17,59 +17,7 @@ if(count($uri) < 3){
   $tab->conn = $conn;
 
   if($tab->table_name() == false){
-    //if table doesn't exist
-    // var_dump("I want to redirect");
-    // die;
-  }else{
-
-    $query = '
-      SELECT CONCAT(st.input_first_name, " ", st.input_last_name) AS name, tr.input_amount_to_be_paid,  tr.input_transaction_amount, tr.input_balance, st.hash_id
-      FROM '.$tab->table_name().' AS st
-      INNER JOIN transactions AS tr ON st.hash_id = tr.student_id
-    ';
-
-    //fetch all records without sorting
-    if(!isset ($_GET['session']) && !isset($_GET['term'])){
-      $stmt = $conn->prepare($query);
-      $stmt->execute();
-    }
-
-    //sorting record with session nd term
-    if(isset ($_GET['session']) && isset($_GET['term'])){
-      $fil_query = $query . '
-        WHERE tr.select_session = :s AND (tr.select_term = :t)
-      ';
-
-      $stmt = $conn->prepare($fil_query);
-      $stmt->bindParam(":s", $_GET['session']);
-      $stmt->bindParam(":t", $_GET['term']);
-      $stmt->execute();
-    }
-    //sorting record with session only
-    if(isset ($_GET['session']) && !isset($_GET['term'])){
-      $fil_query = $query . '
-        WHERE tr.select_session = :s
-      ';
-
-      $stmt = $conn->prepare($fil_query);
-      $stmt->bindParam(":s", $_GET['session']);
-      $stmt->execute();
-    }
-    //sorting record with term only
-    if(!isset ($_GET['session']) && isset($_GET['term'])){
-      $fil_query = $query . '
-        WHERE tr.select_term = :t
-      ';
-
-      $stmt = $conn->prepare($fil_query);
-      $stmt->bindParam(":t", $_GET['term']);
-      $stmt->execute();
-    }
-
-    $result = $stmt->fetchAll(PDO::FETCH_BOTH);
-    // var_dump($result);
-
-    // die;
+    die("Error: This page doesn't exist!!!");
   }
 
 }
@@ -271,6 +219,7 @@ include "includes/header.php";
                  {
                    data: 'id',
                     render: function ( data, type, row ) {
+                        // return row.id;
                         return i++;
                     }
                   },

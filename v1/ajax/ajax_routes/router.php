@@ -59,6 +59,10 @@ if (count($uri) > 2) {
     include APP_PATH."/ajax/ajax_fees.php";
     break;
 
+    case 'fetch_students':
+    include APP_PATH."/ajax/ajax_students.php";
+    break;
+
 
 
 

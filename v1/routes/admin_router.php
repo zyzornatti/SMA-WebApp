@@ -27,6 +27,7 @@ if (count($uri) > 2) {
     case 'fees/'.$query_string:
     include APP_PATH."/admin/fees_record.php";
     break;
+
     // fees/student?
     // case 'fees/'.$query_string.'?'.$query_str:
     // include APP_PATH."/admin/fees_record.php";
@@ -46,9 +47,13 @@ if (count($uri) > 2) {
     case 'dashboard':
     include APP_PATH."/admin/dashboard.php";
     break;
-    
+
+    case 'students':
+    include APP_PATH."/admin/students.php";
+    break;
+
     case 'edit?'.$query_string:
-    include APP_PATH."/admin/edit_all.php";
+    include APP_PATH."/admin/update_all.php";
     break;
 
     case 'delete?'.$query_string:

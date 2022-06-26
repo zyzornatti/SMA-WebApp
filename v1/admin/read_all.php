@@ -14,7 +14,7 @@ if(count($uri) <3){
 
   //if there is a select column populate all the select values and save it in an array
   if($columns['select_columns'] != false){
-    $category = $columns['select_columns'];
+   $category = $columns['select_columns'];
   }
   // echo "<prev>";
   // var_dump($tab->filter_record_columns());
@@ -28,6 +28,10 @@ if(count($uri) <3){
 }
 
 $page_title = "Manage ".ucwords($page);
+
+if($page_title == "Manage Students"){
+  header("Location: /students");
+}
 include "includes/header.php";
 
  ?>
