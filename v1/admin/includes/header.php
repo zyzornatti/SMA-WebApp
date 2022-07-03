@@ -37,7 +37,7 @@ if(!isset ($_SESSION['admin'])){
 
   <link rel="stylesheet" href="/assets/plugins/datatables/datatables.min.css">
 
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style5.css">
 </script>
 </head>
 <body>
